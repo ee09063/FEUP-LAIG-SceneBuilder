@@ -1,0 +1,236 @@
+<anf>
+    <globals>
+        <drawing mode="fill" shading="gouraud" background="0.7 0.7 0.7 1.0" />
+        <culling face="back" order="ccw" />
+        <lighting doublesided="true" local="true" enabled="true" ambient="0.8 0.8 0.8 1.0" />
+    </globals>
+   
+    <cameras initial="perspective_01" >
+        <perspective id="perspective_01" near="5.0" far="50.0" angle="75" pos="15.0 13.0 15.0" target="2.0 2.0 2.0" />
+		<perspective id="perspective_02" near="3.0" far="50.0" angle="75" pos="0.0 15.0 0.0" target="8.0 4.0 8.0" />
+		<ortho id="ortho_x" direction="x" near="-10.0" far="50.0" left="-14.0" right="3.0" top="12.0" bottom="-3.0" />	
+		<ortho id="ortho_y" direction="y" near="-10.0" far="50.0" left="-3.0" right="17.0" top="3.0" bottom="-17.0" />	
+		<ortho id="ortho_z" direction="z" near="-10.0" far="50.0" left="-2.0" right="14.0" top="12.0" bottom="-3.0" />
+    </cameras>
+  
+    <lights>
+             <light id="light01" type="omni" enabled="true" pos="4.0 4.0 4.0" marker="true">
+               <component type="ambient" value="0.6 0.6 0.6 1.0" />
+               <component type="diffuse" value="0.6 0.6 0.6 1.0" />
+               <component type="specular" value="0.6 0.6 0.6 1.0" />
+            </light>
+			
+			<light id="light02" type="omni" enabled="true" pos="12.0 4.0 12.0" marker="true">
+               <component type="ambient" value="0.8 0.8 0.8 1.0" />
+               <component type="diffuse" value="0.8 0.8 0.8 1.0" />
+               <component type="specular" value="0.8 0.8 0.8 1.0" />
+            </light>
+			
+			<light id="spotlight_01" type="spot" enabled="false" marker="true" pos="1.0 8.0 1.0" target="4.0 4.0 4.0"  
+                angle="90.0" exponent="1.0" >
+			   <component type="ambient" value="0.7 0.7 0.7 1.0" />
+               <component type="diffuse" value="0.7 0.7 0.7 1.0" />
+               <component type="specular" value="0.7 0.7 0.7 1.0" />
+            </light>
+			
+			<light id="spotlight_02" type="spot" enabled="false" marker="true" pos="15.0 8.0 15.0" target="4.0 4.0 4.0"  
+                angle="90.0" exponent="1.0" >
+			   <component type="ambient" value="0.7 0.7 0.7 1.0" />
+               <component type="diffuse" value="0.7 0.7 0.7 1.0" />
+               <component type="specular" value="0.7 0.7 0.7 1.0" />
+            </light>
+			
+			
+			<light id="spotlight_03" type="spot" enabled="false" marker="true" pos="1.0 8.0 15.0" target="4.0 4.0 4.0"  
+                angle="90.0" exponent="1.0" >
+			   <component type="ambient" value="0.7 0.7 0.7 1.0" />
+               <component type="diffuse" value="0.7 0.7 0.7 1.0" />
+               <component type="specular" value="0.7 0.7 0.7 1.0" />
+            </light>
+			
+			<light id="spotlight_04" type="spot" enabled="false" marker="true" pos="15.0 8.0 1.0" target="4.0 4.0 4.0"  
+                angle="90.0" exponent="1.0" >
+			   <component type="ambient" value="0.7 0.7 0.7 1.0" />
+               <component type="diffuse" value="0.7 0.7 0.7 1.0" />
+               <component type="specular" value="0.7 0.7 0.7 1.0" />
+            </light>
+    </lights>
+
+    <textures>       
+          <texture id="floor" file="floor.png" texlength_s="4.0" texlength_t="4.0" />
+		  <texture id="snow" file="snow.png" texlength_s="4.0" texlength_t="4.0" />
+		  <texture id="mistletoe" file="mistle.jpg" texlength_s="1.0" texlength_t="1.0" />
+		  <texture id="globe" file="globe.jpg" texlength_s="1.0" texlength_t="1.0" />
+		  <texture id="banner" file="banner.jpg" texlength_s="3.0" texlength_t="3.0" />
+    </textures>
+
+    <appearances>
+		<appearance id="floor" shininess="120.0" textureref="floor" >
+               <component type="ambient" value="0.2 0.2 0.2 1.0" />
+               <component type="diffuse" value="0.4	0.4	0.4 1.0" />
+               <component type="specular" value="0.7 0.7 0.7 1.0" />
+        </appearance>
+        <appearance id="snow" shininess="120.0" textureref="snow" >
+               <component type="ambient" value="0.2 0.2 0.2 1.0" />
+               <component type="diffuse" value="0.4	0.4	0.4 1.0" />
+               <component type="specular" value="0.7 0.7 0.7 1.0" />
+        </appearance>
+		<appearance id="mistle" shininess="120.0" textureref="mistletoe" >
+               <component type="ambient" value="0.5 0.5 0.5 1.0" />
+               <component type="diffuse" value="0.5 0.5 0.5 1.0" />
+               <component type="specular" value="0.7 0.6 0.6 1.0" />
+        </appearance>
+		<appearance id="globe" shininess="50.0" textureref="globe" >
+               <component type="ambient" value="0.2 0.1 0.07 1.0" />
+               <component type="diffuse" value="0.7 0.6 0.2 1.0" />
+               <component type="specular" value="0.6 0.5 0.3 1.0" />
+        </appearance>
+		<appearance id="gold" shininess="50.0">
+               <component type="ambient" value="0.2 0.1 0.07 1.0" />
+               <component type="diffuse" value="0.7 0.6 0.2 1.0" />
+               <component type="specular" value="0.6 0.5 0.3 1.0" />
+        </appearance>
+		<appearance id="banner_01" shininess="50.0" textureref="banner" >
+               <component type="ambient" value="0.2 0.2 0.2 1.0" />
+               <component type="diffuse" value="0.4	0.4	0.4 1.0" />
+               <component type="specular" value="0.7 0.7 0.7 1.0" />
+        </appearance>
+    </appearances>
+
+    <graph rootid="scene">
+        <node id="scene">
+			<transforms>
+            </transforms>
+			
+			<appearanceref id="gold" />
+			
+			<descendants>
+                <noderef id="room" />
+				<noderef id="snowman" />
+				<noderef id ="mistle_01"/>
+            </descendants>
+        </node>
+		<node id="mistle_01">
+			<transforms>
+			   <transform type="translate" to="8.0 4.0 1.0" />
+            </transforms>
+			
+			<appearanceref id="mistle" />
+			
+			<primitives>
+				<torus inner="0.6" outer="2.0" slices="30.0" loops="20.0" />
+			</primitives>
+		</node>
+		<node id="room">
+			<transforms>
+            </transforms>
+			
+			<appearanceref id="inherit" />
+			
+			<descendants>
+                <noderef id="floor"/>
+				<noderef id="leftwall"/>
+				<noderef id="rightwall"/>
+            </descendants>
+		</node>
+		<node id="floor">
+			<transforms>
+             <transform type="translate" to="0.0 0.0 16.0" />
+			 <transform type="rotate" axis="x" angle="-90.0"/>
+            </transforms>
+        
+            <appearanceref id="floor" />
+ 
+            <primitives>        
+				 <rectangle xy1="0.0 0.0" xy2="16.0 16.0" />
+            </primitives>
+		</node>
+		<node id="leftwall">
+			<transforms>
+               <transform type="translate" to="0.0 0.0 16.0" />
+			   <transform type="rotate" axis="y" angle="90.0"/>
+            </transforms>
+			
+            <appearanceref id="inherit" />
+ 
+            <primitives>        
+				<rectangle xy1="0.0 0.0" xy2="16.0 8.0" />
+            </primitives>
+			<descendants>
+				<noderef id="banner"/>
+			</descendants>
+		</node>
+		<node id="banner">
+			<transforms>
+				<transform type="translate" to="8.0 1.75 0.25" />
+				<transform type="scale" factor="2.0 2.0 1.0"/>
+            </transforms>
+			
+            <appearanceref id="banner_01" />
+ 
+            <primitives>        
+				<triangle xyz1="-1.5 0.0 0.0" xyz2="1.5 0.0 0.0" xyz3="0.0 3.0 0.0" />
+            </primitives>
+		</node>
+		<node id="rightwall">
+			<transforms>
+            </transforms>
+            <appearanceref id="inherit" />
+ 
+            <primitives>        
+				<rectangle xy1="0.0 0.0" xy2="16.0 8.0" />
+            </primitives>
+		</node>
+		<node id="snowman">
+			<transforms>
+				<transform type="translate" to="8.0 0.0 8.0"/>
+				 <transform type="scale" factor="0.75 0.75 0.75"/>
+			</transforms>
+			<appearanceref id="snow" />
+			<descendants>
+                <noderef id="legs"/>
+				<noderef id="body"/>
+				<noderef id="head"/>
+            </descendants>
+		</node>
+		<node id="legs">
+			<transforms>
+				<transform type="translate" to="0.0 2.0 0.0"/>
+			</transforms>
+			<appearanceref id="inherit" />
+			<primitives>        
+				<sphere radius="2.0" slices="20.0" stacks="20.0" />
+            </primitives>
+		</node>
+		<node id="body">
+			<transforms>
+				<transform type="translate" to="0.0 5.25 0.0"/>
+			</transforms>
+			<appearanceref id="inherit" />
+			<primitives>
+				<sphere radius="1.5" slices="20.0" stacks="20.0" />
+			</primitives>
+		</node>
+		<node id="head">
+			<transforms>
+				<transform type="translate" to="0.0 7.5 0.0"/>
+			</transforms>
+			<appearanceref id="inherit" />
+			<primitives>
+				<sphere radius="1.0" slices="20.0" stacks="20.0" />
+			</primitives>
+			<descendants>
+				<noderef id="nose"/>
+			</descendants>
+		</node>
+		<node id="nose">
+			<transforms>
+				<transform type="translate" to="0.0 0.0 0.0"/>
+			</transforms>
+			<appearanceref id="gold"/>
+			<primitives>
+				<cylinder base="0.5" top="0.0" height="2.0" slices="20.0" stacks="5" />
+			</primitives>
+		</node>
+    </graph>
+</anf>
